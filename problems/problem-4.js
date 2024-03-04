@@ -39,5 +39,11 @@ const items = [
 // Omit the 'age' element
 
 const person = items // append your code here
-
+.reduce((result, [key, value]) => {
+	if (key !== 'age') {
+	  result[key] = value;
+	}
+	return result;
+  }, {});
+	
 test("Problem 4", person)

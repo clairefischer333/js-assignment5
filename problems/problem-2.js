@@ -50,5 +50,24 @@ const strings = [
 ]
 
 const jedi = strings // append your code here
+//filter out non-jedi
+	.filter((str) => str.includes('Jedi'))
+//map to objects
+	.map((str) => {
+		const obj = {}
+		//split string into key-value pairs
+		str.split(',').forEach((pair) => {
+			//split key-value pair into key and value
+			const [key, value] = pair.split(':')
+			//remove quotes from key and value
+			obj[key.replace(/"/g, '')] = value.replace(/"/g, '')
+		})
+		return obj
+	})
+	//convert age to number
+	.map((obj) => {
+		obj.age = parseInt(obj.age)
+		return obj
+	})
 
 test("Problem 2", jedi)

@@ -30,5 +30,14 @@ const isEven = number => number % 2 === 0 // returns true if the number is even
 const numbers = [ -10, -5, 0, 5, 10, 8, -2 ]
 
 const numberStrings = numbers // append your array methods here
+.filter(number => number > 0) //  zeros and negatives
+.map(number => {
+  const outcome = isEven(number) ? 'even' : 'odd';
+  return `${(number)} is ${outcome}`;
+})
+.sort((a, b) => {
+    const numOne = a.split(' ')[0];
+    const numTwo = b.split(' ')[0];
+    return numOne - numTwo; })
 
 test("Problem 3", numberStrings)
